@@ -1,2 +1,7 @@
 # Estudando-JavaScript-
-Repositorio de Estudos em JavaScript
+
+- Manipuando o DOM
+
+
+
+
