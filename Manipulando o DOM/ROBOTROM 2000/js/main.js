@@ -66,7 +66,7 @@ function atualizaEstatisticas(peca){
 
 function mudaRobo () {
     
-    if(numero < cores.length){
+    if(numero < cores.length-1){
         numero = numero + 1;
     }else{
         numero = 0;
