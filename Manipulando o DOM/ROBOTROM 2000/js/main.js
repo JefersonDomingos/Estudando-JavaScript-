@@ -43,24 +43,28 @@ robo.setAttribute("src", `img/robos/robotron_${cores[numero]}.png`);
 controle.forEach((elemento) => {
     elemento.addEventListener("click", (evento) => {
     manipulaDados(evento.target.dataset.controle, evento.target.parentNode);
-    atualizaEstatisticas(evento.target.dataset.peca);
+    atualizaEstatisticas(evento.target.dataset.peca, evento.target.dataset.controle);
 
 
     })
 })
 
-function manipulaDados (eData, controle) {
+function manipulaDados (operacao, controle) {
     const peca = controle.querySelector("[data-contador]");
-    if(eData === "-"){
+    if(operacao === "-"){
         peca.value = parseInt(peca.value) - 1;
     }else{
         peca.value = parseInt(peca.value) + 1;
     }
 };
 
-function atualizaEstatisticas(peca){
+function atualizaEstatisticas(peca, operacao){
     estatisticas.forEach((elemento) => {
-        elemento.textContent = parseInt(elemento.textContent) + pecas[peca][elemento.dataset.estatistica]
+        if(operacao === "+"){
+            elemento.textContent = parseInt(elemento.textContent) + pecas[peca][elemento.dataset.estatistica]
+        }else{
+            elemento.textContent = parseInt(elemento.textContent) - pecas[peca][elemento.dataset.estatistica]
+        }
     })
 }
 
